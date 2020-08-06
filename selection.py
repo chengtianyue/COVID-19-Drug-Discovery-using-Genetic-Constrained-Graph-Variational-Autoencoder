@@ -16,7 +16,3 @@ def select(flist, crat=0.25):
 	#再随机选择一部分样本进入下一轮
 	print(chosen)
 	return chosen
-
-
-
-#select(f1)
