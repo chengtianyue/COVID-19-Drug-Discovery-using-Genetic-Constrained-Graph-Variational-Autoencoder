@@ -1,4 +1,6 @@
 import random
+from rdkit import rdBase, Chem, DataStructs
+import numpy
 
 def getflist(molist,choosingfunc):
 	#输出包含每个分子适应值的列表
@@ -35,4 +37,8 @@ def select(molist,flist,reproduction_metric=2):
 	return chosen
 
 def score(molecule):
-	return -len(molecule)
+    fingerprint = Chem.RDKFingerprint(Chem.MolFromSmiles(row['smile']))
+    similarity = np.max(DataStructs.BulkTanimotoSimilarity(fingerprint,training_fingerprints))
+    adj_factor = (1 / similarity) **.333
+    adj_score = row['score'] * adj_factor
+    return adj_score
