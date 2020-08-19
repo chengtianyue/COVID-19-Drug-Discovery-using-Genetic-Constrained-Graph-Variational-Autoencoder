@@ -37,8 +37,8 @@ def select(molist,flist,reproduction_metric=2):
 	return chosen
 
 def score(molecule):
-    fingerprint = Chem.RDKFingerprint(Chem.MolFromSmiles(row['smile']))
+    fingerprint = Chem.RDKFingerprint(Chem.MolFromSmiles(molecule['smile']))
     similarity = np.max(DataStructs.BulkTanimotoSimilarity(fingerprint,training_fingerprints))
     adj_factor = (1 / similarity) **.333
-    adj_score = row['score'] * adj_factor
+    adj_score = molecule['score'] * adj_factor
     return adj_score
