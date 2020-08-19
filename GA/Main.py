@@ -22,7 +22,7 @@ with open('smiles_zinc.pkl', "rb+") as smiles:
 #print(Tsmslist)
 #至此初始化完成
 
-def GA(population,scorer,generations):
+def GA(population,generations):
 	for a in population:
 		print(a)
 	print('='*150)
@@ -36,4 +36,4 @@ def GA(population,scorer,generations):
 		print(population)
 	return population
 
-GA(cut(Tsmslist,100,0),score,10)
+GA(cut(Tsmslist,100,0),10)
