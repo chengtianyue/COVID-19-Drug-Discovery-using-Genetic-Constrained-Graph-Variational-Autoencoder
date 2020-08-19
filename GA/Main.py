@@ -10,8 +10,7 @@ from selection import getflist
 from selection import select
     #轮盘赌选择+精英保留
     #flist为含有每个样本适应度值的list
-from selection import score
-	#给分子评分的机制
+
 from crossover import reproduce
 	#增加样本量并随机crossover，输入为包含多个SMILES表达式的列表以及获取括号位置的函数以及繁殖系数（后者可不输入，默认为2），输出为包含reproduce后SMILES表达式的列表。
 from Topping import cut
