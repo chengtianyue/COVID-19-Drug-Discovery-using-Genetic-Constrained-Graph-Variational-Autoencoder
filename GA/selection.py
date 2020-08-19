@@ -2,11 +2,17 @@ import random
 from rdkit import rdBase, Chem, DataStructs
 import numpy
 
-def getflist(molist,choosingfunc):
+def getflist(molist):
 	#输出包含每个分子适应值的列表
 	flist = []
-	for a in molist:
-		flist.append(choosingfunc(a))
+	dcoy = molist
+	for a in range(len(dcoy)):
+		fingerprint = Chem.RDKFingerprint(Chem.MolFromSmiles(dcoy[0]))
+		mem = dcoy[0]
+		del dcoy[0]
+		similarity = np.mean(DataStructs.BulkTanimotoSimilarity(fingerprint,dcoy))
+		dcoy.append(mem)
+		flist.append(fingerprint)
 	return flist
 
 def select(molist,flist,reproduction_metric=2):
@@ -35,10 +41,3 @@ def select(molist,flist,reproduction_metric=2):
 	#再随机选择一部分样本进入下一轮
 	molist = chosen
 	return chosen
-
-def score(molecule):
-    fingerprint = Chem.RDKFingerprint(Chem.MolFromSmiles(molecule['smile']))
-    similarity = np.max(DataStructs.BulkTanimotoSimilarity(fingerprint,training_fingerprints))
-    adj_factor = (1 / similarity) **.333
-    adj_score = molecule['score'] * adj_factor
-    return adj_score
