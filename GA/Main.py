@@ -31,7 +31,7 @@ def GA(population,scorer,generations):
 		reproduce(population,gpp)
 		reproduce(population,gap)
 		for b in range(2):
-			flist = getflist(population,scorer)
+			flist = getflist(population)
 			population = select(population,flist)
 		print(a,len(population))
 		print(population)
