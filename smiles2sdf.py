@@ -4,7 +4,7 @@ from rdkit.Chem import PandasTools
 from rdkit import Chem
 from rdkit.Chem import rdRGroupDecomposition
 from rdkit.six import StringIO
-import_path = 'CGVAE/generated_smiles_zinc'
+import_path = '110epoch_generated_smiles_zinc'
 print("Finished Extracting SMILES from "+import_path)
 with open(import_path, 'rb') as f:
     x = pickle.load(f)
