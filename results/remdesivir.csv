@@ -1,0 +1,10 @@
+Ligand,Binding Affinity,rmsd/ub, rmsd/lb
+6lu7_remdesivir,-7.2,0.0,0.0
+6lu7_remdesivir,-7.1,23.883,19.724
+6lu7_remdesivir,-7.0,24.174,19.74
+6lu7_remdesivir,-6.7,23.697,19.204
+6lu7_remdesivir,-6.7,22.673,19.035
+6lu7_remdesivir,-6.6,3.579,2.066
+6lu7_remdesivir,-6.6,5.162,2.937
+6lu7_remdesivir,-6.5,4.45,2.156
+6lu7_remdesivir,-6.4,25.384,21.4
